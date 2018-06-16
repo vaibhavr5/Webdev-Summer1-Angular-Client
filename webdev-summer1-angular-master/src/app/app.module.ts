@@ -23,6 +23,8 @@ import { ProfileComponent } from './profile/profile.component';
 import {UserServiceClient} from "./services/user.service.client";
 import { TopicPillsComponent } from './topic-pills/topic-pills.component';
 import {TopicServiceClient} from "./services/topic.service.client";
+import {SectionServiceClient} from "./services/section.service.client";
+import {SectionListComponent} from "./section-list/section-list.component";
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import {TopicServiceClient} from "./services/topic.service.client";
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    TopicPillsComponent
+    TopicPillsComponent,
+    SectionListComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import {TopicServiceClient} from "./services/topic.service.client";
     LessonServiceClient,
     WidgetServiceClient,
     UserServiceClient,
-    TopicServiceClient
+    TopicServiceClient,
+    SectionServiceClient
   ],
   bootstrap: [AppComponent]
 })
