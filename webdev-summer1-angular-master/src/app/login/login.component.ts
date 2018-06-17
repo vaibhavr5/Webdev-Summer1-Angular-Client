@@ -9,13 +9,31 @@ import {UserServiceClient} from "../services/user.service.client";
 })
 export class LoginComponent implements OnInit {
 
+  message: String;
+credentials;
+user:{};
   login(username, password) {
     console.log([username, password]);
     this.service
       .login(username, password)
-      .then(() => {
+      .then(user => this.credentials=user)
+      .then(()=>this.check_login(this.credentials));
+      // .then(() => {
+      //   this.router.navigate(['profile']);
+      // });
+  }
+
+  check_login(credentials)
+  {
+    console.log("In login component check:"+credentials.username);
+    console.log("IN login component check:"+credentials.error);
+    //console.log("In login component check:"+JSON.stringify(credentials));
+
+      if(credentials.user=="Invalid User")
+        this.message="Invalid credentials.. Please try again or Register to continue  ";
+      else
         this.router.navigate(['profile']);
-      });
+
   }
 
   constructor(private router: Router,

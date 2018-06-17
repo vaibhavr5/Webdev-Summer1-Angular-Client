@@ -25,6 +25,8 @@ import { TopicPillsComponent } from './topic-pills/topic-pills.component';
 import {TopicServiceClient} from "./services/topic.service.client";
 import {SectionServiceClient} from "./services/section.service.client";
 import {SectionListComponent} from "./section-list/section-list.component";
+import { WhiteboardProfileComponent } from './whiteboard-profile/whiteboard-profile.component';
+import { CourseGridProfileComponent } from './course-grid-profile/course-grid-profile.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import {SectionListComponent} from "./section-list/section-list.component";
     RegisterComponent,
     ProfileComponent,
     TopicPillsComponent,
-    SectionListComponent
+    SectionListComponent,
+    WhiteboardProfileComponent,
+    CourseGridProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,7 @@
         <p class="card-text">Modified Date:  {{course.modified === null ? "2018-01-01" : course.modified.slice(0,10)}}</p>
         <a routerLink="/course/{{course.id}}"
            class="btn btn-primary">View Course</a>
-        <a routerLink="/login"
+        <a routerLink="/course/{{course.id}}/section"
            class="btn btn-primary">Sections</a>
       </div>
     </div>

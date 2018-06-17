@@ -20,8 +20,11 @@ export class SectionListComponent implements OnInit {
   seats = '';
   courseId = '';
   sections = [];
+  course;
   loadSections(courseId) {
     this.courseId = courseId;
+    this.service.findCourseById(this.courseId)
+      .then(course=>this.course=course);
     this
       .service
       .findSectionsForCourse(courseId)

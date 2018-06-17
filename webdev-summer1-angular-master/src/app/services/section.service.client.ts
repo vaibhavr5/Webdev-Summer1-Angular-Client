@@ -23,6 +23,12 @@ export class SectionServiceClient {
       .then(response => response.json());
   }
 
+  findCourseById(courseId)
+  {
+    return fetch('http://localhost:8080/api/course/'+courseId)
+      .then(response => response.json());
+  }
+
   createSection(courseId, name, seats) {
     const section = {courseId, name, seats};
     return fetch(this.SECTION_URL.replace('COURSEID', courseId), {

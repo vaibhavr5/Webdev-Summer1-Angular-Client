@@ -4,7 +4,7 @@
   <input [(ngModel)]="username"
          placeholder="username"
          class="form-control"/>
-  <input [(ngModel)]="firstName"
+  <input [(ngModel)]="firstname"
          placeholder="first name"
          class="form-control"/>
   <input [(ngModel)]="lastName"
@@ -18,7 +18,7 @@
     Update
   </button>
 
-  <h2>Sections ({{sections.length}})</h2>
+  <h2>Sections Enrolled ({{sections.length}})</h2>
 
   <ul class="list-group">
     <li *ngFor="let enrollment of sections" class="list-group-item">
@@ -28,6 +28,6 @@
   </ul>
 
   <a (click)="logout()">Logout</a>
-  <a routerLink="/home">Home</a>
+  <a (click)="whiteboard()">White Board</a>
 
 </div>

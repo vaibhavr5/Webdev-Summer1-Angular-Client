@@ -17,11 +17,12 @@ export class ProfileComponent implements OnInit {
 
   user = {};
   username;
+  _id;
   password;
   sections = [];
 
   update(user) {
-    console.log(user);
+    console.log("In profile component"+user._id);
   }
 
   logout() {
@@ -32,15 +33,26 @@ export class ProfileComponent implements OnInit {
 
   }
 
+  whiteboard()
+  {
+      this.router.navigate(['/home',this._id]);
+  }
+
+  setUser(user)
+  {
+    this.username=user.username;
+    this._id = user._id;
+  }
   ngOnInit() {
     this.service
       .profile()
-      .then(user =>
-        this.username = user.username);
+      .then(user => this.setUser(user));
+        //this.username = user.username);
 
     this.sectionService
       .findSectionsForStudent()
       .then(sections => this.sections = sections );
+
   }
 
 }
