@@ -28,7 +28,7 @@ export class UserServiceClient {
   }
 
   profile() {
-    return fetch('http://localhost:4000/api/profile/',
+    return fetch('http://localhost:4000/api/profile',
       {
         credentials: 'include', // include, same-origin, *omit
       })
