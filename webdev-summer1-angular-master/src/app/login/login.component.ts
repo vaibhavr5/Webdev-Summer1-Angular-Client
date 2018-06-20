@@ -28,9 +28,11 @@ user:{};
     console.log("In login component check:"+credentials.username);
     console.log("IN login component check:"+credentials.error);
     //console.log("In login component check:"+JSON.stringify(credentials));
-
+    console.log("CRED:"+credentials);
       if(credentials.user=="Invalid User")
         this.message="Invalid credentials.. Please try again or Register to continue  ";
+      else if(credentials.username=="admin")
+        this.router.navigate(['user-admin']);
       else
         this.router.navigate(['profile']);
 

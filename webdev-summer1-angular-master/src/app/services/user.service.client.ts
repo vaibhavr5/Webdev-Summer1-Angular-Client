@@ -28,7 +28,7 @@ export class UserServiceClient {
   }
 
   profile() {
-    return fetch('http://localhost:4000/api/profile',
+    return fetch('http://localhost:4000/api/profile/',
       {
         credentials: 'include', // include, same-origin, *omit
       })
@@ -44,6 +44,32 @@ export class UserServiceClient {
       body: JSON.stringify(user),
       credentials: 'include', // include, same-origin, *omit
       method: 'post',
+      headers: {
+        'content-type': 'application/json'
+      }
+    });
+  }
+
+  findUsername(username) {
+
+    const credentials = {
+      username: username,
+    };
+    return fetch('http://localhost:4000/api/register', {
+      method: 'post',
+      body: JSON.stringify(credentials),
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
+  updateUser(user) {
+    return fetch('http://localhost:4000/api/user', {
+      method: "PUT",
+      body: JSON.stringify(user),
+      credentials: 'include', // include, same-origin, *omit
       headers: {
         'content-type': 'application/json'
       }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../models/user.model.client";
 import {UserServiceClient} from "../services/user.service.client";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {SectionServiceClient} from "../services/section.service.client";
 
 @Component({
@@ -13,16 +13,27 @@ export class ProfileComponent implements OnInit {
 
   constructor(private service: UserServiceClient,
               private sectionService: SectionServiceClient,
-              private router: Router) { }
+              private router: Router,
+              private route: ActivatedRoute) {
+    this.route.params.subscribe(params => this._id=(params['userId']))
+  }
 
-  user = {};
-  username;
   _id;
-  password;
+  user ;
+  username;
+  firstName;
+  lastName;
+  email;
   sections = [];
 
-  update(user) {
-    console.log("In profile component"+user._id);
+  update() {
+    this.user.username = this.username;
+    this.user.firstName = this.firstName;
+    this.user.lastName = this.lastName;
+    this.user.email = this.email;
+
+
+    this.service.updateUser(this.user).then(user => this.user = user).then((() => alert('Details updated successfully!')));
   }
 
   logout() {
@@ -35,18 +46,44 @@ export class ProfileComponent implements OnInit {
 
   whiteboard()
   {
-      this.router.navigate(['/home',this._id]);
+      this.router.navigate(['/home']);
   }
 
   setUser(user)
   {
+    console.log("PROFILE ID:"+this._id);
+    console.log("POST USER:"+JSON.stringify(user));
+
+    this.user=user;
     this.username=user.username;
     this._id = user._id;
+
+    this.firstName = user.firstName;
+    this.lastName = user.lastName;
+    this.email = user.email;
+    console.log("PROFILE USERNAME:"+this.username);
+    console.log("PROF FIRST:"+this.firstName);
   }
+
+
+  unroll(section) {
+    // alert(section._id);
+    this.sectionService
+      .unrollStudentInSection(section._id)
+      .then(() => {
+        this.sectionService
+          .findSectionsForStudent()
+          .then(sections => this.sections = sections );
+      });
+  }
+
+
   ngOnInit() {
+
     this.service
       .profile()
       .then(user => this.setUser(user));
+
         //this.username = user.username);
 
     this.sectionService

@@ -27,6 +27,8 @@ import {SectionServiceClient} from "./services/section.service.client";
 import {SectionListComponent} from "./section-list/section-list.component";
 import { WhiteboardProfileComponent } from './whiteboard-profile/whiteboard-profile.component';
 import { CourseGridProfileComponent } from './course-grid-profile/course-grid-profile.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminSectionControlComponent } from './admin-section-control/admin-section-control.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { CourseGridProfileComponent } from './course-grid-profile/course-grid-pr
     TopicPillsComponent,
     SectionListComponent,
     WhiteboardProfileComponent,
-    CourseGridProfileComponent
+    CourseGridProfileComponent,
+    AdminComponent,
+    AdminSectionControlComponent
   ],
   imports: [
     BrowserModule,

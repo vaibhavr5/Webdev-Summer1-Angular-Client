@@ -4,7 +4,7 @@
       class="nav-item">
     <a class="nav-link"
        [ngClass]="{'active': topic.id == topicId}"
-       routerLink="/topic/{{topic.id}}">
+       routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lessonId}}/topic/{{topic.id}}">
       {{topic.title}}
     </a>
   </li>
