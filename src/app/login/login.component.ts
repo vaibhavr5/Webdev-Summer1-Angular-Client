@@ -10,6 +10,8 @@ import {UserServiceClient} from "../services/user.service.client";
 export class LoginComponent implements OnInit {
 
   message: String;
+  username;
+  password;
 credentials;
 user:{};
   login(username, password) {
