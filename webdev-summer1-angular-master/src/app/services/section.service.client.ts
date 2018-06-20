@@ -34,7 +34,7 @@ export class SectionServiceClient {
 
   findCourseById(courseId)
   {
-    return fetch('http://localhost:8080/api/course/'+courseId)
+    return fetch('https://course-mgmt-sys.herokuapp.com/api/course/'+courseId)
       .then(response => response.json());
   }
 

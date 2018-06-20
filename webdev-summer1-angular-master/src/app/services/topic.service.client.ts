@@ -3,7 +3,7 @@ export class TopicServiceClient {
     console.log("In topic service client:"+moduleId);
     console.log("In topic service client:"+courseId);
     console.log("In topic service client:"+lessonId);
-    return fetch('http://localhost:8080/api/course/'+ courseId+ '/module/' + moduleId + '/lesson/'+lessonId+'/topic')
+    return fetch('https://course-mgmt-sys.herokuapp.com/api/course/'+ courseId+ '/module/' + moduleId + '/lesson/'+lessonId+'/topic')
       .then(response => response.json());
   }
 }
