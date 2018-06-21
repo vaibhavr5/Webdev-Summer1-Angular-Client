@@ -34,11 +34,8 @@ user:{};
     else if(credentials.password.length < 1){
       alert('Please enter password');
     }
-    console.log("In login component check:"+credentials.username);
-    console.log("IN login component check:"+credentials.error);
-    //console.log("In login component check:"+JSON.stringify(credentials));
-    console.log("CRED:"+credentials);
-      if(credentials.user=="Invalid User")
+
+     else if(credentials.user=="Invalid User")
         this.message="Invalid credentials.. Please try again or Register to continue  ";
       else if(credentials.username=="admin")
         this.router.navigate(['user-admin']);
