@@ -32,7 +32,7 @@ user:{};
   check_login(credentials)
   {
 
-      if(credentials.user=="Invalid User" || credentials.username==undefined)
+      if(credentials.user=="Invalid User" || this.username==undefined || this.password==undefined)
         this.message="Invalid credentials.. Please try again or Register to continue  ";
       else if(credentials.username=="admin")
         this.router.navigate(['user-admin']);
