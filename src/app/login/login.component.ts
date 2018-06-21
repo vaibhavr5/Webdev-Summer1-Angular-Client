@@ -28,6 +28,7 @@ user:{};
 
   check_login(credentials)
   {
+    console.log("USER INPUT:"+credentials.username);
     if(credentials.username.length < 1){
       alert('Please enter username');
     }
