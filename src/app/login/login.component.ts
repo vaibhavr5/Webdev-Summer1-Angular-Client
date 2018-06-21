@@ -15,14 +15,21 @@ export class LoginComponent implements OnInit {
 credentials;
 user:{};
   login(username, password) {
-    console.log([username, password]);
-    this.service
-      .login(username, password)
-      .then(user => this.credentials=user)
-      .then(()=>this.check_login(this.credentials));
+    if(username.length<1){
+      alert('Missing username. Please enter');
+    }
+    else if(password.length<1){
+      alert('Missing password. Please enter');
+    }
+    else {
+      this.service
+        .login(username, password)
+        .then(user => this.credentials = user)
+        .then(() => this.check_login(this.credentials));
       // .then(() => {
       //   this.router.navigate(['profile']);
       // });
+    }
   }
 
   check_login(credentials)
