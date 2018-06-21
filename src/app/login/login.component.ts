@@ -15,13 +15,7 @@ export class LoginComponent implements OnInit {
 credentials;
 user:{};
   login(username, password) {
-    if(username.length<1){
-      alert('Missing username. Please enter');
-    }
-    else if(password.length<1){
-      alert('Missing password. Please enter');
-    }
-    else {
+
       this.service
         .login(username, password)
         .then(user => this.credentials = user)
@@ -29,11 +23,17 @@ user:{};
       // .then(() => {
       //   this.router.navigate(['profile']);
       // });
-    }
+
   }
 
   check_login(credentials)
   {
+    if(credentials.username.length < 1){
+      alert('Please enter username');
+    }
+    else if(credentials.password.length < 1){
+      alert('Please enter password');
+    }
     console.log("In login component check:"+credentials.username);
     console.log("IN login component check:"+credentials.error);
     //console.log("In login component check:"+JSON.stringify(credentials));
