@@ -15,7 +15,10 @@ export class LoginComponent implements OnInit {
 credentials;
 user:{};
   login(username, password) {
-
+      this.username=username;
+      this.password=password;
+      console.log("INPUT USERNAME:"+this.username);
+      console.log("INPUT PASSWORD:"+this.password);
       this.service
         .login(username, password)
         .then(user => this.credentials = user)
@@ -29,14 +32,7 @@ user:{};
   check_login(credentials)
   {
 
-    if(credentials.username==undefined || credentials.username==""){
-      alert('Please enter username');
-    }
-    else if(credentials.password==undefined || credentials.password==""){
-      alert('Please enter password');
-    }
-
-     else if(credentials.user=="Invalid User")
+      if(credentials.user=="Invalid User" || credentials.username==undefined)
         this.message="Invalid credentials.. Please try again or Register to continue  ";
       else if(credentials.username=="admin")
         this.router.navigate(['user-admin']);
