@@ -28,11 +28,11 @@ user:{};
 
   check_login(credentials)
   {
-    console.log("USER INPUT:"+credentials.username);
-    if(credentials.username.length < 1){
+
+    if(credentials.username==undefined || credentials.username==""){
       alert('Please enter username');
     }
-    else if(credentials.password.length < 1){
+    else if(credentials.password==undefined || credentials.password==""){
       alert('Please enter password');
     }
 
